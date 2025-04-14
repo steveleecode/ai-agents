@@ -1,12 +1,9 @@
 import os
 from openai import OpenAI
-
-from dotenv import load_dotenv
-
-load_dotenv()
+import streamlit as st
 
 client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY"),
+    api_key=st.secrets["OPENAI_API_KEY"],
 )
 
 def chat_completion(messanges: list[dict]) -> dict:
